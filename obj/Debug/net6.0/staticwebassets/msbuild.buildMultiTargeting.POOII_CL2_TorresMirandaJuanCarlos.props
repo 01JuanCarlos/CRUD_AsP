@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\POOII_CL2_TorresMirandaJuanCarlos.props" />
+</Project>

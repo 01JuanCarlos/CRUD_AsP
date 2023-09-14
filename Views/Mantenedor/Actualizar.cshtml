@@ -1,0 +1,53 @@
+﻿@model ProductoModel
+@{
+    ViewData["Title"] = "Actualizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Actualizar
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="Actualizar" asp-controller="Mantenedor" method="post">
+
+            <input asp-for="id" type="hidden" class="form-control">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="nombre" type="text" class="form-control">
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+
+                <select asp-for="idtipo" name="idtipo">
+
+                    <option value="1">Accesorio</option>
+
+                    <option value="2">Parte</option>
+
+                    <option value="3">Otro</option>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input asp-for="precio" type="text" class="form-control">
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha</label>
+                <input asp-for="fecha" type="date" class="form-control">
+                <span asp-validation-for="fecha" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<POOII_CL2_TorresMirandaJuanCarlos.Models.ProductoModel>
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Agregar" class="btn btn-success">Agregar Nuevo</a>
+</p>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idtipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idtipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+
+            <td>
+                <img src="@Url.Content(item.foto)" style="width:50px; height:50px; border:1px solid ">
+            </td>
+                <td>
+                    <a asp-action="Actualizar" asp-controller="Mantenedor" class="btn btn-primary btn-sm" asp-route-IdProducto="@item.id">Actualizar</a>
+
+                    <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-IdProducto="@item.id">Eliminar</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
